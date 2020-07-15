@@ -1,7 +1,7 @@
 {
-  "name": "wombat-js-ui",
+  "name": "dolphin-ui",
   "version": "1.0.0",
-  "description": "&quot;A library of components responsive and accessible to users ",
+  "description": "A library of components responsive and accessible to users ",
   "author": "VanessaPC",
   "license": "MIT",
   "repository": "git+ssh://git@github.com/S-V-Labs/wombat-js-ui.git",
