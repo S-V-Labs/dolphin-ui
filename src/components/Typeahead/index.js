@@ -12,6 +12,7 @@ import {
   InputContainer
 } from './styles'
 import { WHITE } from '../../styles/colors'
+import { BaseCSS } from '../../styles/base'
 
 export const TypeAhead = ({ list }) => {
   const [filterColor, setFilterColor] = useState('')
@@ -162,55 +163,58 @@ export const TypeAhead = ({ list }) => {
   }
 
   return (
-    <Container
-      data-cy='search-container'
-      onKeyDown={(e) => getKeyAction(e)}
-      ref={containerRef}
-      onBlur={handleBlur}
-    >
-      <InputContainer>
-        <Input
-          data-cy='search-input'
-          id='input-filter'
-          type='text'
-          name='filter'
-          placeholder='Start your search'
-          onChange={(e) => handleInstantChange(e)}
-          value={filterColor}
-          ref={inputRef}
-          autoComplete='off'
-          onClick={() => {
-            char && char.length && createResultsList(char)
-            setListOpen(displayList !== null)
-          }}
-        />
-        {inputIsFilled(char) && (
-          <Button
-            onClick={clearList}
-            onKeyDown={(e) => getKeyAction(e)}
-            ref={clearButtonRef}
-          >
-            <MdClose fontSize='1.4rem' fill={WHITE} />
-          </Button>
+    <React.Fragment>
+      <BaseCSS />
+      <Container
+        data-cy='search-container'
+        onKeyDown={(e) => getKeyAction(e)}
+        ref={containerRef}
+        onBlur={handleBlur}
+      >
+        <InputContainer>
+          <Input
+            data-cy='search-input'
+            id='input-filter'
+            type='text'
+            name='filter'
+            placeholder='Start your search'
+            onChange={(e) => handleInstantChange(e)}
+            value={filterColor}
+            ref={inputRef}
+            autoComplete='off'
+            onClick={() => {
+              char && char.length && createResultsList(char)
+              setListOpen(displayList !== null)
+            }}
+          />
+          {inputIsFilled(char) && (
+            <Button
+              onClick={clearList}
+              onKeyDown={(e) => getKeyAction(e)}
+              ref={clearButtonRef}
+            >
+              <MdClose fontSize='1.4rem' fill={WHITE} />
+            </Button>
+          )}
+        </InputContainer>
+        {listOpen && (
+          <ListContainer>
+            {displayList &&
+              displayList.map((item, index) => (
+                <DropdownItem
+                  data-cy='search-results'
+                  index={index}
+                  item={item}
+                  key={item}
+                  focused={index === focusIndex}
+                  onItemSelect={onItemSelect}
+                  selectedChars={char}
+                />
+              ))}
+          </ListContainer>
         )}
-      </InputContainer>
-      {listOpen && (
-        <ListContainer>
-          {displayList &&
-            displayList.map((item, index) => (
-              <DropdownItem
-                data-cy='search-results'
-                index={index}
-                item={item}
-                key={item}
-                focused={index === focusIndex}
-                onItemSelect={onItemSelect}
-                selectedChars={char}
-              />
-            ))}
-        </ListContainer>
-      )}
-    </Container>
+      </Container>
+    </React.Fragment>
   )
 }
 
