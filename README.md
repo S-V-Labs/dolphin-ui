@@ -1,13 +1,13 @@
-# wombat-js-ui
+# dolphin-ui
 
 > &quot;A library of components responsive and accessible to users
 
-[![NPM](https://img.shields.io/npm/v/wombat-js-ui.svg)](https://www.npmjs.com/package/wombat-js-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/dolhpin-ui.svg)](https://www.npmjs.com/package/dolphin-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save wombat-js-ui
+npm install --save dolphin-ui
 ```
 
 ## Usage
@@ -15,8 +15,8 @@ npm install --save wombat-js-ui
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'wombat-js-ui'
-import 'wombat-js-ui/dist/index.css'
+import MyComponent from 'dolphin-ui'
+import 'dolphin-ui/dist/index.css'
 
 class Example extends Component {
   render() {
@@ -35,7 +35,7 @@ class Example extends Component {
 
 ## Currently working on
 
-[x] Typeahead component
-[ ] Switch component
-[ ] Tick component
-[ ] Modal component
+- [x] Typeahead component
+- [ ] Switch component
+- [ ] Tick component
+- [ ] Modal component

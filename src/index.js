@@ -1,6 +1,9 @@
 import React from 'react'
+import { TypeAhead } from './components/Typeahead'
 import styles from './styles.module.css'
 
-export const ExampleComponent = ({ text }) => {
+const ExampleComponent = ({ text }) => {
   return <div className={styles.test}>Example Component: {text}</div>
 }
+
+export { TypeAhead }

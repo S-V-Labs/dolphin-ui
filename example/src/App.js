@@ -1,10 +1,17 @@
 import React from 'react'
 
-import { ExampleComponent } from 'wombat-js-ui'
-import 'wombat-js-ui/dist/index.css'
+import 'dolphin-ui/dist/index.css'
+
+import { TypeAhead } from 'dolphin-ui'
+
+import { colorsList } from './mock-data/colorslist'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return (
+    <>
+      <TypeAhead list={colorsList} />
+    </>
+  )
 }
 
 export default App
