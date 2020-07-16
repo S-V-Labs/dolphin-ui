@@ -18,7 +18,9 @@ export const TypeAhead = ({ list }) => {
   const [filterColor, setFilterColor] = useState('')
   const [char, setChar] = useState('')
   const [displayList, setDisplayList] = useState(null)
-  const [listOpen, setListOpen] = useState(displayList !== null)
+  const [listOpen, setListOpen] = useState(
+    displayList !== null || (displayList && displayList.length > 0)
+  )
   const [focusIndex, setFocusIndex] = useState(null)
 
   // ** I want to control the navigation of the user towards the input field
@@ -157,7 +159,6 @@ export const TypeAhead = ({ list }) => {
    * * and we only want to check after the actual focused element is active.
    * * This check happens because we care about other elements state of focus and unfocused.
    **/
-
   const handleBlur = (e) => {
     setTimeout(() => {
       if (!containerRef.current.contains(document.activeElement)) {
@@ -175,8 +176,9 @@ export const TypeAhead = ({ list }) => {
         ref={containerRef}
         onBlur={handleBlur}
       >
-        <InputContainer>
+        <InputContainer id='search-container'>
           <Input
+            aria-label='Search input'
             data-cy='search-input'
             id='input-filter'
             type='text'
@@ -196,6 +198,7 @@ export const TypeAhead = ({ list }) => {
               onClick={clearList}
               onKeyDown={(e) => getKeyAction(e)}
               ref={clearButtonRef}
+              aria-label='input enter button'
             >
               <MdClose fontSize='1.4rem' fill={WHITE} />
             </Button>

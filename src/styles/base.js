@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import { typography } from './typography'
+import { WHITE } from './colors'
 
 export const BaseCSS = createGlobalStyle`
     *, *::before, *::after {
@@ -7,7 +8,7 @@ export const BaseCSS = createGlobalStyle`
     }
 
     body{
-        background: AliceBlue;
+        background: ${WHITE};
     }
     ${typography}
 

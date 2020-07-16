@@ -37,6 +37,7 @@ export const DropdownItem = ({
       key={index}
       data-cy='search-result-item'
       index={index}
+      aria-label={`result-${index}: ${item}`}
     >
       <BoldPart
         dangerouslySetInnerHTML={{ __html: getBoldChars(item, selectedChars) }}
