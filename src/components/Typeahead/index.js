@@ -130,7 +130,8 @@ export const TypeAhead = ({ list }) => {
         break
 
       case USER_INPUT.ENTER:
-        clearList()
+        setChar(e.target.value)
+        setListOpen(false)
         break
 
       default:
@@ -151,9 +152,12 @@ export const TypeAhead = ({ list }) => {
     setListOpen(false)
   }
 
-  // In this case we set a timeout because the element body gets focused before the element
-  // and we only want to check after the actual focused element is active.
-  // This check happens because we care about other elements state of focus and unfocused.
+  /**
+   * * In this case we set a timeout because the element body gets focused before the element
+   * * and we only want to check after the actual focused element is active.
+   * * This check happens because we care about other elements state of focus and unfocused.
+   **/
+
   const handleBlur = (e) => {
     setTimeout(() => {
       if (!containerRef.current.contains(document.activeElement)) {
